@@ -1,0 +1,35 @@
+section{
+    width: 100%;
+}
+.head{
+    background-image: linear-gradient(#4d4dad, white);
+    padding: 10px;
+}
+.head h1{
+   
+    color:white;
+    padding: 5px;
+    border-radius: 5px;
+}
+img{
+    width: 20%;
+    opacity: 0.6;
+}
+.head{
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    margin: auto;
+}
+
+.head-element{
+    margin:auto;
+}
+.head-element2{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.head-element2 img{
+    margin: auto;   
+}

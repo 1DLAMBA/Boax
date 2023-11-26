@@ -1,0 +1,15 @@
+
+footer{
+    background-color:#4d4dad ;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    margin-top: 5px;
+    padding: 5%;
+    width: 100%;
+}
+.item{
+    color: white;
+    padding-left: 2%;
+    border-left: 3px solid white;
+}

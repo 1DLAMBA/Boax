@@ -1,0 +1,84 @@
+body{
+    background-image: url('../../assets/Hexagon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2px;
+}
+h1{
+    font-size: 4svw;
+}
+input,select{
+    border-radius:3px;
+    background-color: #ffffffa5;
+    border: 1px solid #4d4dad;
+}
+.body{
+    margin-top: 4%;
+    margin-bottom: 4%;
+    margin-left: 15%;
+   margin-right: 15%;
+    background-color: #4d4dadac;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    color: white;
+}
+p a{
+    color:#c4c4ff;
+    
+}
+.registration-body{
+    width: 100%;
+    margin: auto;
+    
+    place-content: center;
+    display: flex;
+}
+.side{
+    background-color: #4d4dad;
+    background-image: url('../../assets/phone2.jpg');
+    background-size: cover;
+    width: 50.7%;
+    padding: 10%;
+}
+.side span{
+    text-shadow: 2px 2px 4px #4d4dadb2;
+}
+.form{
+    width: 49%;
+    padding: 10%;
+}
+
+.btn{
+    background-color: #4d4dad;
+    border: 1px solid rgba(255, 255, 255, 0.121);
+    margin: 2%;
+}
+.btn:hover{
+    border:1px solid white;
+}
+@media (min-width: 599px){
+    .side{
+        background-color: #4d4dad;
+        width: 50.7%;
+        padding: 10%;
+    }
+    .form{
+        width: 49%;
+        padding: 10%;
+    }
+}
+@media (max-width: 600px){
+    .registration-body{
+        flex-direction: column-reverse;
+    }
+    .side{
+        background-color: #4d4dad;
+        width: 100%;
+        padding: 10%;
+    }
+    .form{
+        width: 100%;
+        padding: 10%;
+    }
+}
+

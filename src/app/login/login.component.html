@@ -1,0 +1,35 @@
+<head>
+  <style src="assets/home.component.css"></style>
+</head>
+<body><div class="body">
+    <div class="registration-body">
+       
+    <form class="form" [formGroup]="loginForm">
+        
+        <div class="form-row" id="set1">
+            <h2>Login<hr></h2>
+            <br>
+          <div class="form-group col-md-12">
+            <label for="inputEmail4">Email</label>
+            <input name="email" formControlName="email" type="email" class="form-control" id="inputEmail4" >
+          </div>
+          <br>
+          <div class="form-group col-md-12">
+            <label for="inputPassword4">Password</label>
+            <input name="password" formControlName="password" type="password" class="form-control" id="inputPassword4" >
+          </div>
+        </div>
+        <br>
+        
+        <button type="submit" class="btn btn-primary" (click)="login()">Log In</button>
+        <p>Do not have an account?&nbsp;&nbsp;<a routerLink="../registration">Register!</a></p>
+      </form>
+      <div class="side">
+        <strong><h1><span>
+            Welcome<br>
+            Back!</span>
+        </h1></strong>
+      </div>
+    </div>
+    </div>
+    </body>

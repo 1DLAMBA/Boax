@@ -1,0 +1,209 @@
+@media(min-width: 600px){
+.card .img{
+    width:500px;
+}
+.bal{
+    width: 31%
+}
+.service .item{
+    width: 170px;
+    margin: auto;
+    text-align: center;
+}
+.service .item img{
+    margin: auto;
+    width: 100px;
+}
+
+}
+@media(max-width: 599px){
+    .card .img{
+        width:98%;
+    }
+    .bal{
+        width: 100%
+    }
+    .service .item{
+        text-align: center;
+    }
+    .service .item img{
+        width:50px;
+        
+    }
+    .service .item p{
+        font-size: 10px;
+    }
+}
+*{
+    font-family:Maven Pro;
+}
+.addM{
+    background-color: transparent;
+    border: 0;
+    color: black;
+}
+main{
+    margin-bottom: 0%;
+    background-color: #4d4dad46;
+    padding: 1% 10% 5% 10%;
+}
+main h1{
+    color: #4d4dad;
+}
+.balance{
+   
+    justify-content: space-between;
+   
+    margin-bottom: 2%;
+    margin-left: 1%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bal{
+    background-color: #ffffff46;
+   
+    padding: 10px;
+   
+    text-align: center;
+}
+.balance h3{
+    color: #4d4dad;
+}
+.balance p{
+    font-size: 30px;
+}
+
+button{
+    color: white;
+    background-color: black;
+    padding: 10px;
+    border-radius: 5px;
+}
+.circle{
+    background-color: white;
+    border-radius: 100px;
+}
+
+ul{
+   
+    margin-top: 40px;
+}
+.low-div{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+}
+.transaction{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding-left:4%;
+    padding-right:4%;
+    padding-top:2% ;
+    box-shadow:rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.184) 0px 0px 25px 1px;
+}
+.date{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.7vw;
+}
+.transaction div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    border-bottom:1px solid #4d4dad91 ;
+    
+}
+.transaction div:first-child{
+width: max-content;
+}
+.span1{
+    color: green;
+}
+.span2{
+    color: red;
+}
+.card{
+    border: 0;
+    background-color: transparent;
+    height: fit-content;
+    margin-right: 10%;
+    
+    
+}
+.service{
+    justify-content: space-between;
+    display: flex;
+    margin-top: 5%;
+}
+.service .item{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+}
+.service .item:hover{
+    border-bottom: 2px solid #4d4dad;
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+.service span{
+    font-family: none;
+} 
+.card .img{
+
+    box-shadow:rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.184) 0px 0px 25px 1px;
+    border-radius: 6px;
+   
+}
+
+.cardbtn{
+    width: 150px;
+    background-color: #4d4dad;
+    border:0;
+}
+.
+.cardicon{
+    width: 50;
+}
+.cardicons{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.custom-dialog{
+    background-image: none;
+    background-color: #4d4dad;
+}
+.dialog{
+    display: flex;
+    flex-direction: column;
+
+}
+.dialog img{
+    margin: auto;
+}
+#set1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#set2{
+    display: flex;
+    justify-content: space-between;
+}
+.submit{
+    width: 100%;
+}
+.submit2{
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0.614);
+    border: 0px;
+}
+.submit2:hover{
+    background-color: black;
+}

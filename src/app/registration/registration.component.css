@@ -1,0 +1,102 @@
+body{
+    background-image: url('../../assets/Hexagon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2px;
+}
+
+.body{
+    margin-top: 4%;
+    margin-bottom: 4%;
+    margin-left: 15%;
+   margin-right: 15%;
+    background-color: #4d4dadac;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    color: white;
+}
+.registration-body{
+    width: 100%;
+    margin: auto;
+    z-index: -1;
+    display: flex;
+    place-content: center;
+}
+.side{
+    background-color: #4d4dad;
+    background-image: url('../../assets/phoneman.jpg');
+    background-size: cover;
+    width: 50.7%;
+    padding: 10%;
+}
+
+.side span{
+    background-color: #4d4dad;
+    width: 20%;
+    text-shadow: 2px 2px 4px #4d4dad;
+}
+.form{
+    width: 49%;
+    padding: 5%;
+}
+.btn{
+    background-color: #4d4dad;
+    border: 2px solid rgba(255, 255, 255, 0.336);
+}
+.btn:hover{
+    border:2px solid white
+}
+#set1{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+
+}
+.side h1{
+    font-size: 4svw;
+}
+p a{
+    color:#c4c4ff;
+    
+}
+#set2{
+    display: flex;
+    flex-direction: column;
+}
+input,select{
+    border-radius:3px;
+    background-color: #ffffffa5;
+    border: 1px solid #4d4dad;
+}
+@media (max-width: 600px){
+    #set1{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    
+    }
+    .registration-body{
+        flex-direction: column-reverse;
+    }
+    .side{
+        background-color: #4d4dad;
+        width: 100%;
+        padding: 10%;
+    }
+    .form{
+        width: 100%;
+        padding: 10%;
+    }
+}
+@media (min-width: 599px){
+    .side{
+        background-color: #4d4dad;
+        width: 50.7%;
+        padding: 10%;
+    }
+    .form{
+        width:  60%;
+        padding: 7%;
+    }
+}
+

@@ -1,0 +1,79 @@
+
+   <!----***HEADER***--->
+   <header id="nav-menu" aria-label="navigation bar">
+    <div class="container">
+      <div class="nav-start">
+        <a class="logo" href="/">
+          <img src="../../assets/logo.png" width="60" height="35" alt="Inc Logo" />
+        </a>
+        
+      </div>
+      <div class="right-container">
+        
+        <a routerLink="login">
+          <img src="../../assets/pass.jpg" width="30" height="40" alt="user image" />
+        </a>
+        
+      </div>
+      <p-dialog  [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+ 
+
+          <ul>
+            <li>
+              <a href="/" class="nav-link">
+                Home
+               </a>  
+            </li><hr><br>
+            <li>
+              <a class="nav-link" href="/login">
+               About
+              </a>
+              <div id="dropdown2" class="dropdown">  
+              </div>
+            </li><hr><br>
+            <li><a class="nav-link" href="/">Contact</a></li> <hr><br>
+            <li><a class="nav-link" href="/">Stats</a></li><hr><br>
+            <li><a class="nav-link" href="/">Billing System</a></li><hr><br>
+            <li><a class="nav-link" href="/">Cards</a></li> </ul><hr><br>
+          
+            
+          </p-dialog>
+          <div class="nav-end">
+       
+        <nav class="menu">
+          <ul class="menu-bar">
+            <li>
+              <a routerLink="" class="nav-link">
+                Home
+               </a>  
+            </li>
+            <li>
+              <a class="nav-link" href="/">
+               About
+              </a>
+              <div id="dropdown2" class="dropdown">  
+              </div>
+            </li>
+            <li><a class="nav-link" href="/">Contact</a></li>
+            <li><a class="nav-link" href="/">Stats</a></li>
+            <li><a class="nav-link" href="/">Billing System</a></li>
+            <li><a class="nav-link" href="/">Cards</a></li>
+
+            
+          </ul>
+        </nav>
+  
+        <button >
+        <div class="responsive-btn"><p-button  (click)="showDialog()" id="hamburger" aria-label="hamburger" aria-haspopup="true"aria-expanded="false" icon="pi pi-external-link" label="Show"><i class="bx bx-menu" aria-hidden="true"></i></p-button></div>
+          
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Page markup: Not important -->
+  
+  
+   
+   
+ 

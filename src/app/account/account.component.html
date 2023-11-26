@@ -1,0 +1,148 @@
+<main class="body">
+    <h1>Welcome, {{user.name}}</h1>
+    <br>
+    Acct Number: {{id}}<br>
+    <br>
+    <div class="balance">
+        <div class="bal">
+        <h3>Balance</h3>
+        <p><strong>₦{{resultbalance}}</strong></p>
+    </div>
+        <div class="forbtn">
+            <button class="bi-arrow-right">
+                Your foreign accounts
+                
+            </button>
+        </div>
+    </div>
+    <div class="low-div">
+        <div class="transaction">
+            <h2>Transactions</h2>
+            <hr>
+            
+                <div class="col" *ngFor="let Transaction of Transactions">
+                  {{Transaction.receivername}}&nbsp;&nbsp;<span class="date">{{Transaction.created_at| date :'MM/dd/YYYY'}}</span>&nbsp;&nbsp;
+                  <span class="span1" *ngIf="Transaction.transactionType === '+'">{{Transaction.transactionType}}{{Transaction.amount}}</span>
+                  <span class="span2" *ngIf="Transaction.transactionType === '-'">{{Transaction.transactionType}}{{Transaction.amount}}</span>
+                   <hr>
+                </div>
+     
+            
+        </div>
+        <p-divider layout="vertical"></p-divider>
+        <p-dialog styleClass="custom-dialog"  header="Add Money with card" [(visible)]="visible" [modal]="true"  [draggable]="false" [resizable]="false">
+          <span class="cardicon" style="font-family: none;"><img src="../../assets/icons8-magnetic-card-50.png"></span>
+            <div class="dialog">
+           <img alt="" src="../../assets/logo.png" width=50>
+           <div class="cardicons"> <img alt="" src="../../assets/icons8-mastercard-48.png" width=40> <img alt="" src="../../assets/icons8-visa-48.png" width=40> <img alt="" src="../../assets/verve.svg" width=40></div>
+           <form [formGroup]="AccountForm">
+                <div class="form-row" id="set1">
+                    <div class="form-group col-md-12">
+                      <label for="inputName4">Name on card</label>
+                      <input id="" name="receivername" formControlName="receivername" type="text" class="form-control" id="inputName4" >
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label for="inputPhone4">Card Number</label>
+                      <input name="receiveracct" formControlName="receiveracct" type="text" class="form-control" id="inputPhone4" >
+                    </div>
+                  </div>
+                <div class="form-row" id="set2">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">Expiry Date</label>
+                    <input name="" formControlName="" type="month" class="form-control" id="inputEmail4" placeholder="MM/YYYY" >
+                  </div>
+                  <div class="form-group col-md-5">
+                    <label for="inputPassword4">cvv</label>
+                    <input name="description" formControlName="description" type="password" class="form-control" id="inputPassword4" >
+                  </div>
+                </div>
+                <div class="form-row" id="set2">
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Amount</label>
+                        <input name="account_balance" formControlName="account_balance" type="text" class="form-control" id="inputPassword4" >
+                      </div>
+                    <div class="form-group col-md-5">
+                        <label for="inputPassword4">PIN</label>
+                        <input name="" formControlName="" type="password" class="form-control" id="inputPassword4" >
+                      </div>
+                    </div>  
+                    <br>            
+                    <button class="submit" (click)="save()">Submit</button>
+                </form>
+                </div>
+        </p-dialog>
+        <p-dialog styleClass="custom-dialog"  header="Send Money to Boax User" [(visible)]="visible4" [modal]="true" [style]="{ width: '30vw' }" [draggable]="false" [resizable]="false">
+          Account Name: {{AcctName}}<br>
+          Account No.: {{AcctID}}<br>
+          Email: {{AcctEmail}}<hr>
+          <form [formGroup]="AccountForm">
+          <div class="form-row" id="set1">
+            <div class="form-group col-md-12">
+              <label for="inputPassword4">Amount</label>
+              <input name="account_balance" formControlName="account_balance" type="text" class="form-control" id="inputPassword4" >
+            </div>
+          </div><br>
+          <button class="submit" (click)="sendMoney()">Submit</button>
+        </form>
+          </p-dialog>
+        <p-dialog styleClass="custom-dialog"  header="Send Money to Boax User" [(visible)]="visible3" [modal]="true" [style]="{ width: '30vw' }" [draggable]="false" [resizable]="false">
+          <div class="dialog">
+          <img src="../../assets/logo.png" width=50>
+          <button class="submit2" (click)="ctrlDialog()"> Send To Other banks</button>
+          <form [formGroup]="AccountForm">
+            <div class="form-row" id="set1">
+              <div class="form-group col-md-12">
+                <label for="inputPhone4">Account Number</label>
+                <input name="receiveracct" formControlName="receiveracct" type="text" class="form-control" id="inputPhone4" >
+              </div>
+            </div><br>
+            <button class="submit" (click)="getAccount()">Submit</button>
+          </form>
+          </div>
+        </p-dialog>
+
+        <p-dialog styleClass="custom-dialog"  header="Send Money to Other Banks " [(visible)]="visible2" [modal]="true" [style]="{ width: '30vw' }" [draggable]="false" [resizable]="false">
+          <div class="dialog">
+         <img src="../../assets/logo.png" width=50>
+         <button class="submit2" (click)="showDialog3()"> Send To Boax user</button>
+         <form [formGroup]="AccountForm">
+              <div class="form-row" id="set1">
+                  <div class="form-group col-md-12">
+                    <label for="inputName4">Name of Recipient</label>
+                    <input name="receivername" formControlName="receivername" type="text" class="form-control" id="inputName4" >
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="inputPhone4">Account Number</label>
+                    <input name="receiveracct" formControlName="receiveracct" type="text" class="form-control" id="inputPhone4" >
+                  </div>
+                </div>
+              <div class="form-row" id="set2">
+                  <div class="form-group col-md-6">
+                      <label for="inputPassword4">Amount</label>
+                      <input name="account_balance" formControlName="account_balance" type="text" class="form-control" id="inputPassword4" >
+                    </div>
+                  <div class="form-group col-md-5">
+                      <label for="inputPassword4">PIN</label>
+                      <input name="" formControlName="" type="password" class="form-control" id="inputPassword4" >
+                    </div>
+                  </div>  
+                  <br>            
+                  <button class="submit" (click)="save2()">Submit</button>
+              </form>
+              </div>
+      </p-dialog>
+
+        <div class="card">
+<button class="bi-credit-card cardbtn">&nbsp;View Card</button>
+<br>
+            <img class="img" alt="card" src="../../assets/1x/ncard.png">
+           
+        <div class="service">
+            <div class="item"><button class="addM" (click)="showDialog2()" icon="pi pi-external-link" label="Show"><img alt="service"  src="../../assets/paper-plane-tilt-light.png" > <p><strong>Send Money</strong></p></button></div>
+                 <div class="item"> <button class="addM" (click)="showDialog()" label="Show"><img alt="service" src="../../assets/plus-circle-light.png" ><p><strong>Add Money</strong></p></button></div>
+            <div class="item"><button class="addM" (click)="showDialog()" label="Show"><img alt="service" src="../../assets/wallet-light.png" ><p><strong>Pay Bill</strong></p></button></div>
+        </div>
+        </div>
+        
+    </div>
+</main>

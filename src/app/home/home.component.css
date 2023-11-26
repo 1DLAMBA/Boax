@@ -1,0 +1,228 @@
+@media (max-width: 600px) {
+    .div-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    }
+    .features{
+        flex-direction: column;
+    }
+    .followus{
+        margin: auto;
+    }
+    .preabout img{
+        width: 100%;
+    }
+  
+}
+@media(min-width:599px){
+    .div-2{
+        display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+}
+.home{
+ 
+    display: flex;
+  
+    /* border: 1px solid #4d4dad; */
+   flex-wrap: wrap;
+    justify-content: space-between;
+}
+.home1{
+    width: 60%;
+    
+}
+.home2{
+    width: 40%;
+     }
+.home2 img{
+    width: 90%;
+    opacity: 0.6;
+}
+.wel-head{
+    font-size: 7vw;
+}
+.wel-head .word{
+color:#4d4dad;
+border: 1px solid;
+font-size: 9vw;
+font-weight: bold;
+}
+.wel-body{
+    font-size:5vw;
+}
+.welcome-buttons{
+    margin-top: 5%;
+    gap: 3px;
+}
+.welcome-buttons .btn-1{
+    padding: 10px 15px 10px 15px;
+    width: 7rem;
+    background-color: #4d4dad;
+    color: white;
+    border: 2px solid #4d4dad ;
+    border-radius: 7px;
+    margin: 2%;
+    
+}
+.welcome-buttons .btn-1:hover{
+    padding: 10px 15px 10px 15px;
+    width: 7rem;
+    box-shadow:rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.184) 0px 0px 25px 1px;
+    border: 2px solid #6c6cad;
+    border-radius: 7px;
+    margin: 2%;
+}
+.welcome-buttons .btn-2{
+    padding: 10px 15px 10px 15px;
+    width: 7rem;
+    background-color: white;
+    color: #4d4dad;
+    border: 1px solid black ;
+    border-radius: 7px;
+}
+.welcome-buttons .btn-2:hover{
+    padding: 10px 15px 10px 15px;
+    width: 7rem;
+    box-shadow:rgba(106, 71, 134, 0.05) 0px 6px 24px 0px,
+    rgba(102, 53, 110, 0.329) 0px 0px 25px 1px;
+    border: 1px solid black ;
+    border-radius: 7px;
+    
+}
+#feature{
+    padding: 2%;
+    
+    
+    
+}
+.holder{
+    width: 100%;
+}
+.features{
+    margin: 10% 3% 3% 3%;
+    display: flex;
+    border: 1px solid #4d4dad;
+    justify-content: space-between;
+}
+.feat-img{
+    background-color: white;
+    border-radius: 140px;
+    padding: 2%;
+    width: fit-content;
+    margin: 4%;
+
+}
+#feature img{
+    width: 100%;
+}
+.feat-img2{
+    border:1px solid #4d4dad;
+    border-radius:100%;
+    padding: 6%;
+    width: fit-content;
+
+    
+}
+.description-head{
+    border: 1px solid #4d4dad;
+    border-radius: 5px;
+    margin: 4%;
+    padding: 2%;
+    text-align: center;
+}
+.description-head-alt{
+    margin: 4%;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 2%;
+    text-align: center;
+}
+.description p{
+    text-align: center;
+}
+.receive{
+    background-color: #4d4dad;
+    color: white;
+}
+.save{
+    background-color: #4d4dad;
+    color: white;
+}
+.preabout{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about-section{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin:5% ;
+}
+.aboutus{
+    background-color: #4d4dad;
+    margin-top: 2%;
+    padding: 2%;
+    width: fit-content;
+    
+}
+.aboutus p{
+    margin-top: 3%;
+    justify-content: center;
+}
+.followus{
+    color:  #4d4dad;
+    background-image:linear-gradient(white, #4d4dad) ;
+    padding: 2%;
+    height: fit-content;
+}
+.followus hr{
+    color: white;
+}
+.socials{
+    color: black;
+    background-color: white;
+    width: 200px;
+    border-radius: 5px;
+    padding: 5% 10% 5% 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.customercare{
+    margin-top:5% ;
+    width: 100%;
+    background-image: url('../../assets/Hexagon.svg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.customerbody{
+    background-color: #ffffffac;
+    padding-bottom: 5%;
+}
+.customercare h1{
+    font-weight: 900;
+}
+
+.div-3{
+    color: white;
+    background-color:#4d4dad ;
+    padding:7%;
+    box-shadow:rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  rgba(0, 0, 0, 0.144) 0px 0px 24px 4px;
+    
+}
+.customercare-sub{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.about-section h2, .about-section p{
+    color: white;
+}
