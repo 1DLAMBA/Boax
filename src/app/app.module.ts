@@ -12,6 +12,9 @@ import { AccountComponent } from './account/account.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrimeNGConfig } from 'primeng/api';
+import { CountUpModule } from 'ngx-countup';
+import { NgxAnimatedCounterModule } from '@bugsplat/ngx-animated-counter'
+import { ToastModule } from 'primeng/toast';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { FormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
@@ -42,7 +45,9 @@ import { AddCardComponent } from './add-card/add-card.component';
     NgxSpinnerModule,
     DialogModule,
     AnimateModule,
-    DividerModule
+    DividerModule,
+    CountUpModule,
+    NgxAnimatedCounterModule
         
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

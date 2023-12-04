@@ -1,13 +1,22 @@
 <main class="body">
+  <span (click)="deletetoggle()" *ngIf="!user.notiftoggle" class="bell bi-bell"></span>
+  <span (click)="deletetoggle()" *ngIf="user.notiftoggle" class="bell bi-bell-fill"></span>
+
     <h1>Welcome, {{user.name}}</h1>
     <br>
-    Acct Number: {{id}}<br>
+    Acct Number: {{account_number}}<br>
     <br>
     <div class="balance">
         <div class="bal">
         <h3>Balance</h3>
         <p><strong>₦{{resultbalance}}</strong></p>
+        
     </div>
+    <div data-aos="fade-left" data-aos-duration="2000" class="transfers">
+      <span class="bi-arrow-down-right-circle-fill green">&nbsp;₦{{transferin}}</span><br>
+      <span class="bi-arrow-up-right-circle-fill red">&nbsp;₦{{user.transferout}}<span class="red" *ngIf="!user.transferout">0</span></span>
+    </div>
+   
         <div class="forbtn">
             <button class="bi-arrow-right">
                 Your foreign accounts
@@ -17,19 +26,23 @@
     </div>
     <div class="low-div">
         <div class="transaction">
+          
             <h2>Transactions</h2>
             <hr>
-            
+            <div *ngIf="loader" class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
                 <div class="col" *ngFor="let Transaction of Transactions">
                   {{Transaction.receivername}}&nbsp;&nbsp;<span class="date">{{Transaction.created_at| date :'MM/dd/YYYY'}}</span>&nbsp;&nbsp;
                   <span class="span1" *ngIf="Transaction.transactionType === '+'">{{Transaction.transactionType}}{{Transaction.amount}}</span>
                   <span class="span2" *ngIf="Transaction.transactionType === '-'">{{Transaction.transactionType}}{{Transaction.amount}}</span>
                    <hr>
+                  
                 </div>
-     
-            
+              
         </div>
         <p-divider layout="vertical"></p-divider>
+        <!-- DIALOGS!!!!!! -->
         <p-dialog styleClass="custom-dialog"  header="Add Money with card" [(visible)]="visible" [modal]="true"  [draggable]="false" [resizable]="false">
           <span class="cardicon" style="font-family: none;"><img src="../../assets/icons8-magnetic-card-50.png"></span>
             <div class="dialog">
@@ -131,16 +144,75 @@
               </form>
               </div>
       </p-dialog>
+      <p-dialog styleClass="custom-dialog"  header="No Card" [(visible)]="nocard" [modal]="true"  [draggable]="false" [resizable]="false">
+        <div class="dialog">
+        <img src="../../assets/1x/card.png" width=50%><br>
+        <button class="submit2 create" (click)="createcardpush()"> Create Card</button>
+       
+        </div>
+      </p-dialog>
+      <p-dialog styleClass="custom-dialog"  header="Boax Card" [(visible)]="viewcard" [modal]="true"  [draggable]="false" [resizable]="false">
+        <div class="dialog">
+        <img src="../../assets/1x/ncard.png" width=50%><br>
+        <p><strong>Card Number:</strong>{{user.card_number}}</p>
+        <p><strong>CVC:</strong>898</p>
+        <p><strong>Exp Date:</strong>12/25</p>
+
+       
+        </div>
+      </p-dialog>
+
+      <p-dialog styleClass="custom-dialog"  header="Create Boax Card" [(visible)]="createcard" [modal]="true"  [draggable]="false" [resizable]="false">
+        <div class="dialog">
+        <img src="../../assets/logo.png" width=50>
+        
+        <form [formGroup]="AccountForm">
+          <div class="form-row" id="set1">
+            <div class="form-group col-md-12">
+              <p>Card Number: {{cardNumber}}</p>
+              <label for="inputPhone4">Create Pin</label>
+              <input name="pin" formControlName="pin" type="text" class="form-control" id="inputPhone4" >
+              <div *ngIf="
+                            AccountForm.controls['pin']
+                              .invalid &&
+                            AccountForm.controls['pin']
+                              .touched
+                          " class="p-error block">
+                          <small class="pl-1 p-error block"
+                            *ngIf="AccountForm.controls['pin'].errors?.['required']">
+                            This field is required*
+                          </small>
+                        </div>
+            </div>
+          </div><br>
+          <button class="submit" (click)="createCard()" >Submit</button>
+        </form>
+        </div>
+      </p-dialog>
+      <p-dialog styleClass="custom-dialog2"  [position]='topright' header="Notifications" [(visible)]="notification" [modal]="true"  [draggable]="false" [resizable]="false">
+        <div class="dialog notification">
+          <small class="bell bi-bell-fill"></small>
+        <ul *ngFor="let notif of notificationmessage" >
+          <li>{{notif.Message}}</li>
+          <hr>
+        </ul>
+       
+        </div>
+      </p-dialog>
+      <!-- DIALOGS!!!!!! -->
 
         <div class="card">
-<button class="bi-credit-card cardbtn">&nbsp;View Card</button>
+          
+<button class="bi-credit-card cardbtn"  (click)="cardpush()">&nbsp;View Card</button>
 <br>
-            <img class="img" alt="card" src="../../assets/1x/ncard.png">
+            <img data-aos="fade-right" data-aos-duration="3000" *ngIf="user.card_number" class="img" alt="card" src="../../assets/1x/ncard.png">
+            <img data-aos="fade-right" data-aos-duration="3000" *ngIf="!user.card_number" class="img" alt="card" src="../../assets/1x/card.png">
+            
            
         <div class="service">
-            <div class="item"><button class="addM" (click)="showDialog2()" icon="pi pi-external-link" label="Show"><img alt="service"  src="../../assets/paper-plane-tilt-light.png" > <p><strong>Send Money</strong></p></button></div>
-                 <div class="item"> <button class="addM" (click)="showDialog()" label="Show"><img alt="service" src="../../assets/plus-circle-light.png" ><p><strong>Add Money</strong></p></button></div>
-            <div class="item"><button class="addM" (click)="showDialog()" label="Show"><img alt="service" src="../../assets/wallet-light.png" ><p><strong>Pay Bill</strong></p></button></div>
+            <div class="item"><button class="addM" (click)="showDialog2()" icon="pi pi-external-link" label="Show"><span alt="service" width="200" class="bi-send-fill icon"> </span><p><strong>Send Money</strong></p></button></div>
+                 <div class="item"> <button class="addM" (click)="showDialog()" label="Show"><span alt="service" width="200" class="bi-plus-circle icon"> </span><p><strong>Add Money</strong></p></button></div>
+            <div class="item"><button class="addM" (click)="showDialog()" label="Show"><span alt="service" width="200" class="bi-wallet2 icon"> </span><p><strong>Pay Bill</strong></p></button></div>
         </div>
         </div>
         

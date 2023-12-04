@@ -1,4 +1,4 @@
-package com.boax.com;
+package com.Boak.app;
 
 import com.getcapacitor.BridgeActivity;
 

@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">Boax</string>
     <string name="title_activity_main">Boax</string>
-    <string name="package_name">com.boax.com</string>
-    <string name="custom_url_scheme">com.boax.com</string>
+    <string name="package_name">com.Boak.app</string>
+    <string name="custom_url_scheme">com.Boak.app</string>
 </resources>

@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 import { Router, ActivatedRoute,
   ActivatedRouteSnapshot,
   Route, } from '@angular/router';
+  import { MessageService } from 'primeng/api';
 import { RegistrationEndpoint } from '../api/endpoints/registration.Endpoint';
 import { RegistrationResource } from '../api/models/registration.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -52,6 +53,7 @@ export class LoginComponent implements OnInit{
       password: formData.password,
     }
     ).subscribe((response: any)=> {
+      if(response.user){
         this.router.navigate(['account'])
          console.log('response', response.user)
          console.log('respone', response.email)
@@ -60,6 +62,7 @@ export class LoginComponent implements OnInit{
          localStorage.setItem('id', response.user.id);
          localStorage.setItem('name', response.name);
          localStorage.setItem('account_balance', response.account_balance);
+      }
       },
       (error) => {
         // The login is not successful
