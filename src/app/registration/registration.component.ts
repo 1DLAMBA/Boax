@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 import { Router, ActivatedRoute,
   ActivatedRouteSnapshot,
   Route, } from '@angular/router';
+import { environment } from '../environment';
 import { RegistrationEndpoint } from '../api/endpoints/registration.Endpoint';
 import { RegistrationResource } from '../api/models/registration.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -38,7 +39,6 @@ export class RegistrationComponent {
       state: this.fb.control('', [Validators.required]),
       zip: this.fb.control('', [Validators.required]),
       accepted_tcs: this.fb.control('', [Validators.required])
-
     });
   }
   
@@ -75,7 +75,7 @@ export class RegistrationComponent {
    
     if (this.RegistrationForm.valid) {
       // Send the form data to Laravel backend using HTTP POST request
-      this._http.post('http://127.0.0.1:8000/api/register', this.RegistrationForm.value).subscribe(
+      this._http.post(`${environment.baseUrl}/register`, this.RegistrationForm.value).subscribe(
         (response) => {
           // Handle success response here
           console.log('Registration successful', response);

@@ -115,7 +115,7 @@ this.getTransaction();
 
   deletetoggle(){
     this.notification=true;
-    this._http.delete(`http://127.0.0.1:8000/api/clear/${this.user.id}`)
+    this._http.delete(`${environment.baseUrl}/clear/${this.user.id}`)
     .subscribe((response:any) => {
       console.log(response);
       
@@ -211,7 +211,7 @@ this.getTransaction();
   }
   getAccount(){
  
-    this._http.get(`http://127.0.0.1:8000/api/register/get/${this.AccountForm.value.receiveracct}`).subscribe((response:any) => {
+    this._http.get(`${environment.baseUrl}/register/get/${this.AccountForm.value.receiveracct}`).subscribe((response:any) => {
     this.AcctName = response.message.name;
     this.AcctID = response.message.id;
     this.AcctEmail = response.message.email;
@@ -227,7 +227,7 @@ this.getTransaction();
       account_balance: this.AccountForm.value.account_balance,
 
     }
-    this._http.post(`http://127.0.0.1:8000/api/account/update/${this.AcctID}`, formData)
+    this._http.post(`${environment.baseUrl}/account/update/${this.AcctID}`, formData)
     .subscribe((response:any)=>{
       console.log('Balance Added', response.status)
       // console.log('check', response.balance);
@@ -237,7 +237,7 @@ this.getTransaction();
       userID:this.user.id,
       Message:`You sent ${this.AccountForm.value.account_balance} to ${this.AccountForm.value.receiveracct}`
     }
-    this._http.post(`http://127.0.0.1:8000/api/notification`, NotificationFormData)
+    this._http.post(`${environment.baseUrl}/notification`, NotificationFormData)
     .subscribe((response:any)=>{
       console.log('notification response', response)
       // console.log('check', response.balance);
@@ -252,7 +252,7 @@ saveAcct(){
     account_balance: this.AccountForm.value.account_balance,
 
   }
-  this._http.post(`http://127.0.0.1:8000/api/account/update/${this.user.id}`, formData)
+  this._http.post(`${environment.baseUrl}/account/update/${this.user.id}`, formData)
   .subscribe((response:any)=>{
     console.log('Balance Added', response.status)
     console.log('check', response.balance);
@@ -262,7 +262,7 @@ saveAcct(){
     userID:this.user.id,
     Message:`You sent ${this.AccountForm.value.account_balance} to ${this.AccountForm.value.receiveracct}`
   }
-  this._http.post(`http://127.0.0.1:8000/api/notification`, NotificationFormData)
+  this._http.post(`${environment.baseUrl}/notification`, NotificationFormData)
   .subscribe((response:any)=>{
     console.log('notification response', response)
     // console.log('check', response.balance);
@@ -284,7 +284,7 @@ receivernotification(){
     userID: this.AcctID,
     Message:`You have received ${this.AccountForm.value.account_balance} from ${50930000000 +this.user.id}`
   }
-  this._http.post(`http://127.0.0.1:8000/api/notification`, formData2)
+  this._http.post(`${environment.baseUrl}/notification`, formData2)
   .subscribe((response:any)=>{
     console.log('notification response', response)
     // console.log('check', response.balance);
@@ -298,7 +298,7 @@ saveAcct2(){
     notificationmessage: `You have sent ${this.AccountForm.value.account_balance} to ${this.AccountForm.value.receiveracct}`
 
   }
-  this._http.post(`http://127.0.0.1:8000/api/account/reduce/${this.id}`, formData)
+  this._http.post(`${environment.baseUrl}/account/reduce/${this.id}`, formData)
   .subscribe((response:any)=>{
     console.log('Balance reduced', response.status)
     console.log('check', response.balance);
@@ -316,7 +316,7 @@ saveAcct2(){
 //   const formdata={
 //     transfers: this.AccountForm.value.account_balance
 //   }
-//   this._http.post(`http://127.0.0.1:8000/api/transferin/${this.id}`, formdata)
+//   this._http.post(`${environment.baseUrl}/transferin/${this.id}`, formdata)
 //   .subscribe((response:any)=>{
 //     console.log('transfer In', response.status)
 //     // location.reload();
@@ -329,7 +329,7 @@ transferout(){
   const formdata={
     transfers: this.AccountForm.value.account_balance
   }
-  this._http.post(`http://127.0.0.1:8000/api/transferout/${this.id}`, formdata)
+  this._http.post(`${environment.baseUrl}/transferout/${this.id}`, formdata)
   .subscribe((response:any)=>{
     console.log('Transfer Out', response)
     // location.reload();
@@ -347,7 +347,7 @@ SaveTransaction(){
     description: 'Nill Description',
     transactionType: '+'
   }
-  this._http.post(`http://127.0.0.1:8000/api/transaction`, formData2)
+  this._http.post(`${environment.baseUrl}/transaction`, formData2)
   .subscribe((response:any)=>{
     console.log('Transaction Added', response.status)
     
@@ -365,7 +365,7 @@ SaveTransaction2(){
     description: 'Nill Description',
     transactionType: '-'
   }
-  this._http.post(`http://127.0.0.1:8000/api/transaction`, formData2)
+  this._http.post(`${environment.baseUrl}/transaction`, formData2)
   .subscribe((response:any)=>{
     console.log('Transaction Added', response.status)
     
@@ -384,7 +384,7 @@ BoaxTransaction(){
     transactionType: '-'
   }
   
-  this._http.post(`http://127.0.0.1:8000/api/transaction`, formData2)
+  this._http.post(`${environment.baseUrl}/transaction`, formData2)
   .subscribe((response:any)=>{
     console.log('Transaction Added', response.status)
     
@@ -401,7 +401,7 @@ BoaxTransaction2(){
     description: 'Nill Description',
     transactionType: '+'
   }
-  this._http.post(`http://127.0.0.1:8000/api/transaction`, formData2)
+  this._http.post(`${environment.baseUrl}/transaction`, formData2)
   .subscribe((response:any)=>{
     console.log('Transaction Added', response.status)
     
@@ -418,7 +418,7 @@ createCard(){
       card_number:509300001234 + this.user.id,
       pin:this.AccountForm.value.pin
     }
-    this._http.post(`http://127.0.0.1:8000/api/card/${this.id}`, formData2)
+    this._http.post(`${environment.baseUrl}/card/${this.id}`, formData2)
     .subscribe((response:any) => {
       console.log('card details', response)
       Swal.fire(
@@ -445,7 +445,7 @@ getUser(){
     console.log('single', this.user.notificationmessage);
     this.spinnerService.hide();
   });
-  this._http.get(`http://127.0.0.1:8000/api/notification/get/${this.id}`)
+  this._http.get(`${environment.baseUrl}/notification/get/${this.id}`)
   .subscribe((response:any) => {
    
     this.notificationmessage = response.notification;
@@ -455,7 +455,7 @@ getUser(){
   
 }
 getTransaction(){
-  this._http.get(`http://127.0.0.1:8000/api/transaction/get/${this.id}`).subscribe((response:any) => {
+  this._http.get(`${environment.baseUrl}/transaction/get/${this.id}`).subscribe((response:any) => {
     this.Transactions= response.message;
     this.loader = false;
     for (const transaction of this.Transactions) {

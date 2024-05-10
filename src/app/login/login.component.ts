@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 import { Router, ActivatedRoute,
   ActivatedRouteSnapshot,
   Route, } from '@angular/router';
+  import { environment } from '../environment';
   import { MessageService } from 'primeng/api';
 import { RegistrationEndpoint } from '../api/endpoints/registration.Endpoint';
 import { RegistrationResource } from '../api/models/registration.model';
@@ -47,11 +48,8 @@ export class LoginComponent implements OnInit{
     password: this.loginForm.value.password,
     }
 
-    this._http.post('http://127.0.0.1:8000/api/login',
-    {
-      email: formData.email,
-      password: formData.password,
-    }
+    this._http.post(`${environment.baseUrl}/login`,
+   formData
     ).subscribe((response: any)=> {
       if(response.user){
         this.router.navigate(['account'])
@@ -67,7 +65,10 @@ export class LoginComponent implements OnInit{
       (error) => {
         // The login is not successful
         // Display an error message
+        if(error){}
+        // window.alert('Invalid Credentials');
         console.error(error);
+        this.spinnerService.hide();
       }
     );
     console.log('a', formData)
